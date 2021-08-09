@@ -1,0 +1,41 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "target": "es2017",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "outDir": "./dist",
+        "baseUrl": "src",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "paths": {
+            "@services/*": [
+                "services/*"
+            ],
+            "@lib/*": [
+                "lib/*"
+            ],
+            "@services": [
+                "services"
+            ],
+            "@configuration": [
+                "configuration"
+            ],
+            "@view-models/*": [
+                "view-models/*"
+            ],
+            "@entities/*": [
+                "entities/*"
+            ],
+            "@database": [
+                "database"
+            ],
+        }
+    },
+    "include": [
+        "./src/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
