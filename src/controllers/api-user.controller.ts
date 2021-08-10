@@ -1,6 +1,6 @@
-import { Controller, Get, Post, QueryParams } from "routing-controllers";
+import { Body, Controller, Get, Post, QueryParams } from "routing-controllers";
 import { ItemsResult, ItemResult, ResultCode } from '../view-models/result.vm';
-import { APIUser } from '../view-models/api-user.vm';
+import { APIUser, CreateAPIUserParameter } from '../view-models/api-user.vm';
 import { APIUserSvc } from '../services/api-user.svc/index';
 import { Inject, Service } from "typedi";
 
@@ -25,11 +25,14 @@ export class APIUserController {
     }
 
     @Post('/')
-    async createUser(): Promise<ItemResult<APIUser>> {
+    async createUser(@Body() param: CreateAPIUserParameter): Promise<ItemResult<APIUser>> {
+
+        const item = await this.apiUserSvc.createAPIUser(param);
+        
         return {
             success: true,
             code: ResultCode.success,
-            item: null
+            item
         };
     }
 }
