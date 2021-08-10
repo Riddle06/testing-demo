@@ -24,7 +24,7 @@ keys/*.json
 # Mocha
 mochawesome-reports/
 mochawesome-report/
-coverage/**/*
+coverage/
 
 # run time folders
 archive-files/
