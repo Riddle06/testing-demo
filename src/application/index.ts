@@ -1,13 +1,15 @@
 import { createExpressServer, useContainer } from "routing-controllers";
-// import { initializeTransactionalContext } from 'typeorm-transactional-cls-hooked';
+import { initializeTransactionalContext } from 'typeorm-transactional-cls-hooked';
 import { Express } from "express";
 import { configuration } from "../configuration";
 import * as path from "path";
 import { Container } from "typedi";
+import { getDBConnection } from '../database';
 
 export class Application {
     async start() {
-        // initializeTransactionalContext()
+        await getDBConnection()
+        initializeTransactionalContext()
         useContainer(Container)
         const app: Express = createExpressServer({
             routePrefix: '/api',
