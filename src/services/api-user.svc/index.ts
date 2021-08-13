@@ -10,7 +10,7 @@ export class APIUserSvc {
     @Inject()
     protected apiUserLibSvc: APIUserLibSvc
 
-    @Transactional()
+    
     async getAPIUsers(): Promise<[APIUser[], Page]> {
         return this.apiUserLibSvc.getAPIUsers()
     }

@@ -8,11 +8,14 @@ import { CreateAPIUserParameter } from '../view-models/api-user.vm';
 @Service()
 export class APIUserLibSvc {
 
-    @Inject('APIUserRepository')
+    
+    @Inject('APIUserRepository') 
     protected readonly apiUserRepository: APIUserRepository
+
     async getAPIUsers(): Promise<[APIUser[], Page]> {
         const [entities, count] = await this.apiUserRepository.getAllAPIUsers()
         return [entities, { dataAmount: count, pageAmount: 1 }]
+        
     }
 
     async createAPIUser(param: CreateAPIUserParameter): Promise<APIUser> {
