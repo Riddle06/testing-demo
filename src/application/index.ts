@@ -12,11 +12,8 @@ export class Application {
     async start() {
 
         useRCContainer(Container)
-        console.log(`==== 1 useRCContainer`)
         useTypeORMContainer(Container)
-        console.log(`==== 2 useTypeORMContainer`)
         await getDBConnection()
-        console.log(`==== 3 getDBConnection`)
         initializeTransactionalContext()
 
         const app: Express = createExpressServer({
